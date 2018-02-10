@@ -1,0 +1,18 @@
+<section class="row">
+  <div class="col">
+    <label for="city">Enter City:</label>
+    <input id="city" type="text" name="City" [(ngModel)]="cityName">
+  </div>
+  <div class="col">
+    <label for="days">Number Of Days:
+      <span>{{noOfDays}}</span>
+    </label>
+    <input type="range" min="1" max="7" class="slider" [(ngModel)]="noOfDays">
+  </div>
+</section>
+<section class="row">
+  <div class="col align-right">
+    <button (click)="getWeatherData()">Get Data</button>
+  </div>
+</section>
+<app-display-data [weatherData]="dataSet"></app-display-data>

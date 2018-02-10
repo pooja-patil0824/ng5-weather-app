@@ -1,0 +1,39 @@
+<div class="data" *ngIf="weatherData">
+    <section class="location-details">
+        <p>
+            <span>{{weatherData.location.name}}</span>
+            <span>({{weatherData.location.country}})</span>
+        </p>
+        <p>
+            Region :
+            <span>{{weatherData.location.region}}</span>
+        </p>
+        <p>
+            Time Zone :
+            <span>{{weatherData.location.tz_id}}</span>
+        </p>
+    </section>
+    <section>
+        <h2>Forecast
+            <span class="last-updated">last updated : {{weatherData.current.last_updated}}</span>
+        </h2>
+        <div class="current-data" *ngFor="let tempDay of weatherData.forecast.forecastday">
+            <p class="date-wrapper">
+                    {{tempDay.date}} 
+            </p>
+            <p class="left-col">
+                <span class="icon">
+                    <img src="{{tempDay.day.condition.icon}}" alt="image">
+                </span>
+                <span class="text">{{tempDay.day.condition.text}} </span>
+            </p>
+            <p class="right-col">
+                <span>Max Temperature (C) : {{tempDay.day.maxtemp_c}} </span>
+                <span>Min Temperature (C) : {{tempDay.day.mintemp_c}} </span>
+                <span>Humidity (%) : {{tempDay.day.avghumidity}} </span>
+                <span>Precipitation (mm) : {{tempDay.day.totalprecip_mm}} </span>
+                <span>Wind speed (mph) : {{tempDay.day.maxwind_kph}} </span>
+            </p>
+        </div>
+    </section>
+</div>
